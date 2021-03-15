@@ -1,0 +1,7 @@
+<!--pages/notes/rich-editor.wxml-->
+<import src="../wxParse/wxParse.wxml"/>
+<text>富文本编辑界面</text>
+<view class="container">
+  <template is="wxParse" data="{{wxParseData:richcontent.nodes}}"/>
+</view>
+

@@ -1,6 +1,6 @@
 // pages/notes/recorder.js
 var voice = ''
-var util = require('../notes/utils.js')
+var util = require('../voice/utils.js')
 const recorderManager = wx.getRecorderManager()
 Page({
 

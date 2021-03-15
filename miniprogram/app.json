@@ -3,6 +3,7 @@
     "pages/index/index",
     "pages/update/demo1",
     "pages/notes/editor",
+    "pages/notes/rich-editor",
     "pages/voice/recorder"
   ],
   "window": {

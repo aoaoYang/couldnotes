@@ -34,6 +34,11 @@ Page({
       url: "../notes/editor"
     }).then(res=>{})
   },
+  goRichEditor(){
+    wx.navigateTo({
+      url: "../notes/rich-editor"
+    }).then(res=>{})
+  },
   goRecorder(){
     wx.navigateTo({
       url: "../voice/recorder"

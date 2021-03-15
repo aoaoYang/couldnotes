@@ -8,6 +8,6 @@
 --------------
 <button type="primary" bindtap="goEditor">添加和编辑云笔记</button>
 --------------
-<button type="primary" bindtap="goEditor1">富文本云笔记编辑</button>
+<button type="primary" bindtap="goRichEditor">富文本云笔记编辑</button>
 --------------
 <button type="primary" bindtap="goRecorder">录音和识别</button>
