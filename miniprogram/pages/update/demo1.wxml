@@ -1,0 +1,9 @@
+<button type="primary" bindtap="getData">查询多条记录</button>
+<view wx:for="{{dataList}}" wx:key="index" >
+  <view>标题:{{item.title}} </view>
+  <view>阅读人数:{{item.readcount}}</view>
+  -------------------
+</view>
+<button type="primary" bindtap="updateData">更新一条记录</button>
+<view>--------</view>
+<button type="primary" bindtap="deleteData">删除一条记录</button>

@@ -1,0 +1,9 @@
+<!--pages/notes/editor.wxml-->
+<view>云笔记编辑界面</view>
+<form bindsubmit="btnSub">
+  <input name="title" placeholder="请输入云笔记的标题"></input>
+  <input name="author" placeholder="请输入作者"></input>
+  <textarea name="content" placeholder="请输入笔记内容"></textarea>
+  <button type="primary" form-type="submit">发布至云端</button>
+  <button form-type="reset">重置</button>
+</form>

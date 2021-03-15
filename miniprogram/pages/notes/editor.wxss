@@ -1,0 +1,4 @@
+/* pages/notes/editor.wxss */
+input{border:1px solid #8888;}
+textarea { resize:both; width:100%;}
+textarea{border:1px solid #8888}

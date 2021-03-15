@@ -1,0 +1,13 @@
+/* pages/notes/recorder.wxss */
+.sound-style{
+  position: absolute;
+  width: 200rpx;
+  height: 150rpx;
+  margin-top: 200rpx;
+  margin-left: 100rpx;
+}
+
+.button-style{
+  position: relative;
+  left: 0rpx;
+}
