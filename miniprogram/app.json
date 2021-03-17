@@ -4,6 +4,7 @@
     "pages/update/demo1",
     "pages/notes/editor",
     "pages/notes/rich-editor",
+    "pages/editor/preview",
     "pages/voice/recorder"
   ],
   "window": {

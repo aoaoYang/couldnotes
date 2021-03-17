@@ -1,6 +1,6 @@
 // pages/notes/recorder.js
-var voice = ''
-var util = require('../voice/utils.js')
+ // var util = require('../voice/utils/utils.js')
+ // var voice =''
 const recorderManager = wx.getRecorderManager()
 Page({
 
@@ -8,14 +8,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    poster: '../static/images/poster.jpg',
-    name: '有何不可',
-    author: '许嵩',
-    src: 'https://music.taihe.com/song/T10038826794',
-    openRecordingdis: 'block', // 显示录机图标
-    shutRecordingdis: 'none', // 隐藏停止图标
-    recordingTimeqwe: 0, // 录音计时
-    setInter: '', // 录音名称
+    authed:false,
     soundUrl: '',
     isSpeaking: false,
     playurl: ''
@@ -39,15 +32,7 @@ Page({
     this.audioCtx.stop()
   })
 },
-// this.audioCtx.play()},
-audioPause: function () {
-   console.log('audio pause')
-   this.audioCtx.pause()
-},
-audioRestart: function () {
-   console.log('audio restart')
-   this.audioCtx.seek(0)
-},
+
 start: function () {
   // 开始录音
   wx.startRecord({
@@ -70,11 +55,10 @@ start: function () {
     }
   })
   const options = {
-    duration: 60000,
     sampleRate: 16000,
     numberOfChannels: 1,
-    encodeBitRate: 96000,
-    format: 'mp3',
+    encodeBitRate: 48000,
+    format: 'PCM',
     frameSize: 50
   }
   // 开始录音计时
@@ -92,6 +76,63 @@ start: function () {
     console.log(res)
   })
 },
+start_record(){
+  const options = {
+    sampleRate: 16000,
+    numberOfChannels: 1,
+    encodeBitRate: 48000,
+    format: 'PCM',
+    frameSize: 50
+  }
+  recorderManager.start(options)
+  this.setData({isSpeaking:true})
+},
+stop_record(){
+  recorderManager.stop()
+  this.setData({isSpeaking:false})
+  this.bind_stop()
+},
+bind_stop(){
+  var that=this
+  recorderManager.onStop(res=>{
+    var tempfile=res.tempFilePath;
+    const fs=wx.getFileSystemManager();
+    fs.readFile({
+      filePath:tempfile,
+      success(res){ 
+        const buffer=res.data
+        that.audio_rec(buffer)
+      }
+    })
+  })
+},
+audio_rec(data){
+  var that=this;
+  wx.showLoading({
+    title: '语音识别中...',
+  })
+  wx.cloud.callFunction({
+    name:'audio_rec',
+    data:{data}
+  }).then(res=>{
+    if(res.errMsg=="cloud.callFunction:ok" && res.result.err_no==0){
+      var result_list=res.result.result
+      that.setData({
+        result:(result_list.join('')).replace(/。/g,'')
+      })
+      wx.hideLoading()
+    }
+    else{
+      wx.showToast({
+        title: '识别失败',
+        icon:'none'
+      })
+    }
+  }).catch(err=>{
+     console.log("err",err)
+  })
+},
+
 // 结束录音测试
   shutRecording: function () {
     var that = this
@@ -118,9 +159,46 @@ start: function () {
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.get_record_auth()
+   
+    
   },
-
+  get_record_auth () {
+    var that=this;
+    wx.getSetting().then(res=>{
+      if(res.authSetting['scope.record']){
+        that.setData({authed:true})
+      }else{
+        wx.authorize({
+          scope: 'scope.record',
+      }).then(res=>{
+        that.setData({authed:true})
+      }).catch(err=>{
+         that.cancel_auth();
+      })
+    }
+  })
+},
+cancel_auth() {
+    var that=this;
+    wx.showModal({
+      title:'提示',
+      content:'未授权无法录音哦~',
+      cancelText:'不授权',
+      confirmText:'去授权',
+      success:res=>{
+        if(res.confirm){
+          wx.openSetting({
+            success(res){
+              if(res.authSetting['scope.record']){
+                that.setData({authed:true})
+              }
+            }
+          })
+        }
+      }
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

@@ -1,0 +1,3 @@
+<!--pages/editor/preview.wxml-->
+<text>pages/editor/preview.wxml</text>
+<rich-text readOnly="{{true}}" html="{{html}}"></rich-text>

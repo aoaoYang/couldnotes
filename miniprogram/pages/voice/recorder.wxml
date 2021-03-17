@@ -1,19 +1,24 @@
-<view>录音和播放测试页面...</view>
-<audio poster="{{poster}}" name="{{name}}" author="{{author}}" src="{{src}}"
-id="myAudio" controls loop bindplay="funplay"
- bindpause="funpause" bindtimeupdate="funtimeupdate"
- bindended="funended" binderror="funerror" style="width: 610rpx; height: 134rpx; display: inline-block; box-sizing: border-box">
-</audio>
+<view>录音识别测试界面：</view>
+<text class="result">录音识别结果:{{result}}</text>
+<view class="recorder"
+bindtouchstart="start_record"
+bindtouchend="stop_record">
+<image src="../../images/record.jpg"/> 
+<text class="tips">按住说话</text>
+</view>
+
 <view wx:if="{{isSpeaking}}">
+<image class="recording" src="../../images/recorder.gif"
+  style="position: center; top: -58rpx;"></image>
+</view>
+
+<!-- <view wx:if="{{isSpeaking}}">
   <image class="sound-style" src= "../../images/recorder.gif"
   style="position: absolute; left: 158rpx; top: -58rpx; width: 218rpx; height: 154rpx; display: block; box-sizing: border-box">
   </image>
-</view>
-<template is="2836c143" data="{{ ...$root['0'], $root }}"/>
-<button class="button-style" bindtap='start' style="top: 752rpx">开始录音</button>
-<button class="button-style" bindtap='stop' style="top: 779rpx">停止录音</button>
-<button class="button-style" type="primary" bindtap='openRecording' style="top: -22rpx">开始录音测试</button>
-<button class="button-style" type="primary" bindtap='shutRecording'>结束录音测试</button>
-<button  class="button-style" bindtap='audioPlay' style="top: 22rpx">播放录音</button>
-<button  class="button-style"  bindtap="audioPause" style="top: 48rpx">暂停</button>
-<button  class="button-style" bindtap="audioRestart" style="top: 76rpx">重新开始播放</button>
+</view> -->
+
+<button class="button-style" type="primary" bindtap='openRecording' style="top: 286rpx">开始录音测试</button>
+<button class="button-style" type="primary" bindtap='shutRecording' style="top: 292rpx">结束录音测试</button>
+<button  class="button-style"  bindtap="audioPause" style="top: 348rpx">暂停</button>
+<button  class="button-style" bindtap="audioRestart" style="top: 376rpx">重新开始播放</button>
