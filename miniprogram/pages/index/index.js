@@ -1,5 +1,4 @@
 const db=wx.cloud.database()
-const util=require("../utils/utils.js");
 
 Page({
 
@@ -26,11 +25,9 @@ Page({
     db.collection("couldlist").where({
       author:"嘻嘻编程"
     }).get().then(res=>{
-      let timestamp = util.formatTime(new Date())
       this.setData({
         dataObj: res.data
       })
-      // console.log(util.formatTime(new Date(dataObj.time)))
     }).catch(err=>{
       console.log(err)
     })

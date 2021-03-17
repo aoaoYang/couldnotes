@@ -10,7 +10,7 @@
 <button type="primary" bindtap="getRecordData"> 获取云笔记历史录音文字数据</button>
 <view wx:for="{{recordObj}}">
   <view><text selectable="true">录音转文字内容：{{item.recordcontent}}</text></view>
-  <view>录音转文字时间：{{item.recordtime}}</view>
+  <view><text selectable="true">录音转文字时间：{{item.recordtime}}</text></view>
 </view>
 --------------
 <button type="primary" bindtap="goEditor">添加和编辑云笔记</button>
