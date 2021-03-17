@@ -6,14 +6,14 @@
   <view>阅读人数：{{item.readcount}}</view>
 </view>
 --------------
-<button type="primary" bindtap="getRecordData"> 获取云笔记历史录音文字数据</button>
-<view wx:for="{{dataObj}}">
+<button type="primary" bindtap="getRecord"> 获取云笔记历史录音文字数据</button>
+<view wx:for="{{recordObj}}">
   <view>录音转文字时间：{{item.recordtime}}</view>
   <view>录音转文字内容：{{item.recordcontent}}</view>
 </view>
 --------------
 <button type="primary" bindtap="goEditor">添加和编辑云笔记</button>
 --------------
-<button type="primary" bindtap="goRichEditor">HTNL解析界面</button>
+<button type="primary" bindtap="goRichEditor">HTML解析界面</button>
 --------------
 <button type="primary" bindtap="goRecorder">录音和识别</button>

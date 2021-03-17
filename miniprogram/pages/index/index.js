@@ -5,7 +5,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    dataObj:""
+    dataObj:"",
+    recordObj:""
   },
   getData(){
     //查询数据
@@ -24,6 +25,17 @@ Page({
     }).get().then(res=>{
       this.setData({
         dataObj: res.data
+      })
+    }).catch(err=>{
+      console.log(err)
+    })
+  },
+  getRecord(){
+    console.log(123)
+    db.collection("recordlist").
+    get().then(res=>{
+      this.setData({
+        recordObj: res.data
       })
     }).catch(err=>{
       console.log(err)
