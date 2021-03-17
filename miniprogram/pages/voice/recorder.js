@@ -1,6 +1,7 @@
 // pages/notes/recorder.js
  // var util = require('../voice/utils/utils.js')
  // var voice =''
+const db=wx.cloud.database()
 const recorderManager = wx.getRecorderManager()
 Page({
 
@@ -78,6 +79,7 @@ start: function () {
 },
 start_record(){
   const options = {
+    duration: 30000,
     sampleRate: 16000,
     numberOfChannels: 1,
     encodeBitRate: 48000,
@@ -120,6 +122,13 @@ audio_rec(data){
       that.setData({
         result:(result_list.join('')).replace(/。/g,'')
       })
+      db.collection("recordlist").add({
+      data:{
+        recordcontent:result
+      }
+    }).then(res=>{
+          console.log(res)
+    })
       wx.hideLoading()
     }
     else{
@@ -129,6 +138,10 @@ audio_rec(data){
       })
     }
   }).catch(err=>{
+    wx.showToast({
+      title: '识别超时',
+      icon:'none'
+    })
      console.log("err",err)
   })
 },

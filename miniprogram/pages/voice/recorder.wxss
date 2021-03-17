@@ -5,13 +5,13 @@
   text-align: center;
   padding:25rpx;
   margin:25rpx;
-  float: left;
+  float: center;
   font-size:26rpx;
-  margin-top:10rpx;
+  margin-top:110rpx;
 }
 .recorder{
-  float: left;
-  position: relative;
+  float: center;
+  position: absolute;
   bottom: 10%;
   left:0rpx;
   width: 750rpx;
@@ -29,13 +29,13 @@
   padding: 0rpx;
   margin-bottom: 40rpx;
   border-radius: 100rpx;
-  float: left;
+  float: center;
   box-shadow: 1rpx 1rpx 2rpx gainsboro;
 }
 
 .recorder>image:active{
-  opacity: 0.7;
-  transform: scale(0.5);
+  opacity: 0.1;
+  transform: scale(0.1);
   box-shadow: 0rpx 0rpx 0rpx gainsboro;
   background-color: rgba(0,0,0,0.97);
 }

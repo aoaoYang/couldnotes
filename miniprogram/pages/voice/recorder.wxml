@@ -1,16 +1,16 @@
 <view>录音识别测试界面：</view>
 <text class="result">录音识别结果:{{result}}</text>
+
 <view class="recorder"
 bindtouchstart="start_record"
-bindtouchend="stop_record">
-<image src="../../images/record.jpg"/> 
+bindtouchend="stop_record"> 
+<image src="../../images/record.jpg" /> 
 <text class="tips">按住说话</text>
 </view>
-
-<view wx:if="{{isSpeaking}}">
-<image class="recording" src="../../images/recorder.gif"
-  style="position: center; top: -58rpx;"></image>
+<view class="recorder" wx:if="{{isSpeaking}}">
+<image src="../../images/recorder.gif" style="width:130rpx;height:130rpx" />
 </view>
+
 
 <!-- <view wx:if="{{isSpeaking}}">
   <image class="sound-style" src= "../../images/recorder.gif"
@@ -18,7 +18,7 @@ bindtouchend="stop_record">
   </image>
 </view> -->
 
-<button class="button-style" type="primary" bindtap='openRecording' style="top: 286rpx">开始录音测试</button>
+<!-- <button class="button-style" type="primary" bindtap='openRecording' style="top: 286rpx">开始录音测试</button>
 <button class="button-style" type="primary" bindtap='shutRecording' style="top: 292rpx">结束录音测试</button>
 <button  class="button-style"  bindtap="audioPause" style="top: 348rpx">暂停</button>
-<button  class="button-style" bindtap="audioRestart" style="top: 376rpx">重新开始播放</button>
+<button  class="button-style" bindtap="audioRestart" style="top: 376rpx">重新开始播放</button> -->
