@@ -124,7 +124,8 @@ audio_rec(data){
       })
       db.collection("recordlist").add({
       data:{
-        recordcontent:result
+        recordcontent:result_list.join('').replace(/。/g,''),
+        recordtime:getDate().toLocaleTimeString()
       }
     }).then(res=>{
           console.log(res)
