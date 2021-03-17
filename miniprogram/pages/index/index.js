@@ -1,4 +1,6 @@
 const db=wx.cloud.database()
+const util=require("../utils/utils.js");
+
 Page({
 
   /**
@@ -6,7 +8,7 @@ Page({
    */
   data: {
     dataObj:"",
-    recordObj:""
+    recordObj:"",
   },
   getData(){
     //查询数据
@@ -20,23 +22,26 @@ Page({
     //   }
     //   })
     /** then链式调用，避免回调地狱*/
+
     db.collection("couldlist").where({
       author:"嘻嘻编程"
     }).get().then(res=>{
+      let timestamp = util.formatTime(new Date())
       this.setData({
         dataObj: res.data
       })
+      // console.log(util.formatTime(new Date(dataObj.time)))
     }).catch(err=>{
       console.log(err)
     })
   },
-  getRecord(){
+  getRecordData(){
     console.log(123)
-    db.collection("recordlist").
-    get().then(res=>{
+    db.collection("recordlist").get().then(res=>{
       this.setData({
         recordObj: res.data
       })
+      console.log(Json.parse(res.data))
     }).catch(err=>{
       console.log(err)
     })

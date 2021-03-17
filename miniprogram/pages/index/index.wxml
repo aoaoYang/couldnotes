@@ -1,15 +1,16 @@
 <view>这是云测试界面</view>
 <button type="primary" bindtap="getData"> 获取云笔记数据列表</button>
 <view wx:for="{{dataObj}}">
-  <view>标题：{{item.title}}</view>
-  <view>作者：{{item.author}}</view>
-  <view>阅读人数：{{item.readcount}}</view>
+  <view><text selectable="true">标题：{{item.title}}</text></view>
+  <view><text selectable="true">作者：{{item.author}}</text></view>
+  <view><text selectable="true">阅读人数：{{item.readcount}}</text></view> 
+  <view><text selectable="true">保存时间：{{item.time}}</text></view> 
 </view>
 --------------
-<button type="primary" bindtap="getRecord"> 获取云笔记历史录音文字数据</button>
+<button type="primary" bindtap="getRecordData"> 获取云笔记历史录音文字数据</button>
 <view wx:for="{{recordObj}}">
+  <view><text selectable="true">录音转文字内容：{{item.recordcontent}}</text></view>
   <view>录音转文字时间：{{item.recordtime}}</view>
-  <view>录音转文字内容：{{item.recordcontent}}</view>
 </view>
 --------------
 <button type="primary" bindtap="goEditor">添加和编辑云笔记</button>

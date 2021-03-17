@@ -3,6 +3,7 @@
  // var voice =''
 const db=wx.cloud.database()
 const recorderManager = wx.getRecorderManager()
+var myDate =new Date()
 Page({
 
   /**
@@ -125,7 +126,7 @@ audio_rec(data){
       db.collection("recordlist").add({
       data:{
         recordcontent:result_list.join('').replace(/。/g,''),
-        recordtime:getDate().toLocaleTimeString()
+        recordtime:myDate.toLocaleString()
       }
     }).then(res=>{
           console.log(res)
