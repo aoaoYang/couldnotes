@@ -3,7 +3,7 @@
 <view wx:for="{{dataObj}}">
   <view><text selectable="true">标题：{{item.title}}</text></view>
   <view><text selectable="true">作者：{{item.author}}</text></view>
-  <view><text selectable="true">阅读人数：{{item.readcount}}</text></view> 
+  <view><text selectable="true">笔记内容：{{item.content}}</text></view> 
   <view><text selectable="true">保存时间：{{item.time}}</text></view> 
 </view>
 --------------

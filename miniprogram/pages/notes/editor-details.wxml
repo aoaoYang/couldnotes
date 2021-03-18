@@ -1,0 +1,7 @@
+<!--pages/notes/editor-details.wxml-->
+<!-- <text>pages/notes/editor-details.wxml</text> -->
+<rich-text nodes="{{html}}"></rich-text>
+<view class="ajc">
+  <button type="primary" bindtap="back">返回</button>
+  <button type="primary" bindtap="submit">保存至云端</button>
+</view>

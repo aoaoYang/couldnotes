@@ -27,13 +27,7 @@ Page({
       })
     }, 1000)
 },
-  audioPlay: function () {
-    this.audioCtx.src = this.data.playurl
-    this.audioCtx.play()
-    this.audioCtx.onEnded(() => {
-    this.audioCtx.stop()
-  })
-},
+
 
 start: function () {
   // 开始录音
