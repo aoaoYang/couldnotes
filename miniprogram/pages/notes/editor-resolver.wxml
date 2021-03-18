@@ -1,0 +1,6 @@
+<!--pages/notes/editor-resolver.wxml-->
+<import src="../wxParse/wxParse.wxml"/> 
+<text>富文本解析显示界面</text> 
+<view class="container"> 
+  <template is="wxParse" data="{{wxParseData:richcontent.nodes}}"/> 
+</view> 

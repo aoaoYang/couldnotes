@@ -1,20 +1,55 @@
 // pages/notes/editor-details.js
+const db=wx.cloud.database()
+const app = getApp();
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    title:'',
+    content:'',
+    html: ''
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.setData({
+      title:app.globalData.title,
+      content:app.globalData.content,
+      html: app.globalData.html
+    })
   },
-
+ // 返回0
+back(){
+  wx.navigateBack({
+    delta: 1,
+  })
+},
+submit(){
+    wx.showLoading({
+      title: '数据添加中...',
+      mask:true
+    }),
+    //重复数据需要判断
+      db.collection("couldlist").add({
+        data:{
+          title:app.globalData.title,
+          content:app.globalData.content,
+          details:app.globalData.html
+        }
+      }).then(res=>{
+      console.log(res)
+      wx.hideLoading(
+        wx.showToast({
+          title: "数据添加成功",
+          icon:'success',
+          duration:2000}
+        ))
+      })
+},
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

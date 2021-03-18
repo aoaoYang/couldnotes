@@ -4,6 +4,7 @@
     "pages/update/demo1",
     "pages/notes/editor",
     "pages/notes/editor-details",
+    "pages/notes/editor-resolver",
     "pages/editor/preview",
     "pages/voice/recorder"
   ],

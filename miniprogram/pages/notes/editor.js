@@ -6,7 +6,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-  content: '', //文章正文
+  title:'', //文章标题
+  content: '', //文章摘要
   formats: {},
   bottom: 0,
   readOnly: false,
@@ -121,24 +122,40 @@ Page({
       }
     })
   },
+  getTitle(res){
+    const title=res.detail.value;
+    this.setData({
+      title:title
+    })
+  },
+  getContent(res){
+    const content=res.detail.value;
+    this.setData({
+      content:content
+    })
+  },
    //查看详细页面
-   toDeatil(res) {
-    var title=res.detail.value.title;
-    var author=res.detail.value.author;
+   toDeatil() {
     this.editorCtx.getContents({
       success: (res) => {
-        // console.log(title+author+res.html)
+        console.log(this.data.title)
+        console.log(this.data.content)
+        let title=this.data.title
+        let content=this.data.content
+        app.globalData.title=title
+        app.globalData.content=content
         app.globalData.html = res.html
+        console.log(res.html)
         wx.navigateTo({
           url: '../notes/editor-details'
         })
-     
       },
       fail: (res) => {
         console.log("fail：" , res);
       }
     });
   },
+  
   //表单提交
   btnSub(res){
     // var title=res.detail.value.title;

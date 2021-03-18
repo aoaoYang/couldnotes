@@ -1,0 +1,2 @@
+/* pages/notes/editor-resolver.wxss */
+@import "../wxParse/wxParse.wxss";

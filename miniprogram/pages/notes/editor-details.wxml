@@ -1,7 +1,9 @@
 <!--pages/notes/editor-details.wxml-->
 <!-- <text>pages/notes/editor-details.wxml</text> -->
+<view>题目：{{title}}</view>
+<view>摘要：{{content}}</view>
 <rich-text nodes="{{html}}"></rich-text>
 <view class="ajc">
-  <button type="primary" bindtap="back">返回</button>
-  <button type="primary" bindtap="submit">保存至云端</button>
+  <button class="backbutton" type="primary" bindtap="back" style="position: relative; left: -182rpx; top: 767rpx; width: 212rpx; height: 80rpx; display: block; box-sizing: border-box">返回</button>
+  <button class="sendbutton" type="primary" bindtap="submit" style="position: relative; left: 168rpx; top: 686rpx; width: 274rpx; height: 80rpx; display: block; box-sizing: border-box">发布至云端</button>
 </view>

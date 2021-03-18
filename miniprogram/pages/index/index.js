@@ -50,7 +50,7 @@ Page({
   },
   goRichEditor(){
     wx.navigateTo({
-      url: "../notes/rich-editor"
+      url: "../notes/editor-resolver"
     }).then(res=>{})
   },
   goRecorder(){
