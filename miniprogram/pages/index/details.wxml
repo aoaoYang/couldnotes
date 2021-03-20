@@ -1,0 +1,12 @@
+<!--pages/index/details.wxml-->
+<view style="width: 750rpx; height: 72rpx; display: block; box-sizing: border-box">
+<button class="editbtn" bindtap="editnotes">编辑</button>
+<button class="savebtn" bindtap="savenotes">保存</button>
+</view>
+<scroll-view class="scolly" scroll-y>
+  <view>
+   <view class="scrbox"> <text decode="emsp" user-select="true">标题：{{dataObj.title}}&emsp; </text></view>
+   <view class="scrbox"> <text class="scrbox" decode="emsp" user-select="true">摘要：{{dataObj.content}}&emsp;</text></view>
+   <view class="scrboxcontent"> <text user-select="true">内容：{{dataObj.details}}</text></view>
+  </view>
+</scroll-view>

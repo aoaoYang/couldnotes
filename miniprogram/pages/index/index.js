@@ -22,9 +22,7 @@ Page({
     //   })
     /** then链式调用，避免回调地狱*/
 
-    db.collection("couldlist").where({
-      author:"嘻嘻编程"
-    }).get().then(res=>{
+    db.collection("couldlist").get().then(res=>{
       this.setData({
         dataObj: res.data
       })
@@ -38,7 +36,7 @@ Page({
       this.setData({
         recordObj: res.data
       })
-      console.log(Json.parse(res.data))
+      // console.log(Json.parse(res.data))
     }).catch(err=>{
       console.log(err)
     })
@@ -57,6 +55,16 @@ Page({
     wx.navigateTo({
       url: "../voice/recorder"
     }).then(res=>{})
+  },
+  toDetail:function(event){
+    console.log('detail')
+    var id=parseInt(event.currentTarget.dataset.index);
+    var note_id=this.data.dataObj[id]._id;
+    console.log(id)
+    console.log(note_id)
+    wx.navigateTo({
+      url: '../index/details?id=' + note_id,
+    })
   },
 
   /**

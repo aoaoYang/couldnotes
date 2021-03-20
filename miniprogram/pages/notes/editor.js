@@ -7,7 +7,7 @@ Page({
    */
   data: {
   title:'', //文章标题
-  content: '', //文章摘要
+  content: '124', //文章摘要
   formats: {},
   bottom: 0,
   readOnly: false,
@@ -39,10 +39,9 @@ Page({
     const that=this
     wx.createSelectorQuery().select('#editor').context(function(res) {
       that.editorCtx=res.context;
-      // that.editorCtx.setContents({
-      //   html: that.data.content  //将数据写入编辑器内
-      // })
-
+      that.editorCtx.setContents({
+        html: that.data.content  //将数据写入编辑器内作为默认值
+       })
       //在这里用event.on注册onEditorReady方法
       //当event.emit执行时，就会调用onEditorReady方法，重新渲染富文本编辑器
       //此时就能获取到数据，写入编辑器中（即给that.data.articleContent赋值后，他不再为空）

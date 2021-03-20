@@ -2,8 +2,8 @@
 <view class="page eidt-detail-images-container">
   <view class="ajc">
   <view class="title">云笔记编辑界面</view>
-  <input type="text" name="title" placeholder="请输入云笔记的标题" bindinput="getTitle"></input>
-  <input type="text" name="content" placeholder="请输入云笔记摘要" bindinput="getContent"></input>
+  <input type="text" name="title" value="123" placeholder="请输入云笔记的标题" bindinput="getTitle"></input>
+  <input type="text" name="content" value="123" placeholder="请输入云笔记摘要" bindinput="getContent"></input>
   <view class="title">云笔记图文编辑</view>
   </view>
   <view>

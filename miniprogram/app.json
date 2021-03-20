@@ -1,6 +1,7 @@
 {
   "pages": [
     "pages/index/index",
+    "pages/index/details",
     "pages/update/demo1",
     "pages/notes/editor",
     "pages/notes/editor-details",
@@ -15,6 +16,5 @@
     "navigationBarTitleText": "云开发基础",
     "navigationBarTextStyle": "black"
   },
-  "sitemapLocation": "sitemap.json",
-  "style": "v2"
+  "sitemapLocation": "sitemap.json"
 }

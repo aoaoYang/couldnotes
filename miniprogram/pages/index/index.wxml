@@ -1,17 +1,23 @@
 <view>这是云测试界面</view>
 <button type="primary" bindtap="getData"> 获取云笔记数据列表</button>
-<view wx:for="{{dataObj}}">
-  <view><text selectable="true">标题：{{item.title}}</text></view>
-  <view><text selectable="true">作者：{{item.author}}</text></view>
-  <view><text selectable="true">笔记内容：{{item.content}}</text></view> 
-  <view><text selectable="true">保存时间：{{item.time}}</text></view> 
+<scroll-view class="scolly" scroll-y>
+<view wx:for="{{dataObj}}" wx:key="{{index}}" data-index="{{index}}" bindtap="toDetail">
+  <view class="scrbox">
+    <text decode="emsp" user-select="true">标题{{index+1}}：{{item.title}}&emsp; </text>
+    <text user-select="true">摘要：{{item.content}}</text>
+  </view>
 </view>
+</scroll-view>
 --------------
 <button type="primary" bindtap="getRecordData"> 获取云笔记历史录音文字数据</button>
-<view wx:for="{{recordObj}}">
-  <view><text selectable="true">录音转文字内容：{{item.recordcontent}}</text></view>
-  <view><text selectable="true">录音转文字时间：{{item.recordtime}}</text></view>
+<scroll-view class="scolly" scroll-y>
+  <view wx:for="{{recordObj}}" wx:key="{{index}}" data-index="{{index}}"  bindtap="toRecordDetail">
+  <view class="scrbox">
+  <text decode="emsp" user-select="true">录音转文字内容：{{item.recordcontent}}&emsp;</text>
+  <text user-select="true">录音转文字时间：{{item.recordtime}}</text>
 </view>
+</view>
+</scroll-view>
 --------------
 <button type="primary" bindtap="goEditor">添加和编辑云笔记</button>
 --------------
