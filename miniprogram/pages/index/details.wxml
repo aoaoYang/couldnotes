@@ -1,7 +1,6 @@
 <!--pages/index/details.wxml-->
 <view style="width: 750rpx; height: 72rpx; display: block; box-sizing: border-box">
 <button class="editbtn" bindtap="editnotes">编辑</button>
-<button class="savebtn" bindtap="savenotes">保存</button>
 </view>
 <scroll-view class="scolly" scroll-y>
   <view>

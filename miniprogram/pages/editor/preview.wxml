@@ -1,3 +1,9 @@
 <!--pages/editor/preview.wxml-->
-<text>pages/editor/preview.wxml</text>
-<rich-text readOnly="{{true}}" html="{{html}}"></rich-text>
+<scroll-view class="scolly" scroll-y>
+<view wx:for="{{dataObj}}" wx:key="{{index}}" data-index="{{index}}" bindtap="toDetail">
+  <view class="scrbox">
+    <text decode="emsp" user-select="true">标题{{index+1}}：{{item.title}}&emsp; </text>
+    <text user-select="true">摘要：{{item.content}}</text>
+  </view>
+</view>
+</scroll-view>

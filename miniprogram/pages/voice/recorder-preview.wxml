@@ -1,0 +1,8 @@
+<scroll-view class="scolly" scroll-y>
+  <view wx:for="{{recordObj}}" wx:key="{{index}}" data-index="{{index}}"  bindtap="toRecordDetail">
+  <view class="scrbox">
+  <text decode="emsp" user-select="true">录音转文字内容：{{item.recordcontent}}&emsp;</text>
+  <text user-select="true">录音转文字时间：{{item.recordtime}}</text>
+  </view>
+  </view>
+</scroll-view>

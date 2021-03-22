@@ -9,7 +9,8 @@ Page({
   data: {
     title:'',
     content:'',
-    html: ''
+    html: '',
+    details: ''
   },
 
   /**

@@ -1,26 +1,8 @@
-<view>这是云测试界面</view>
-<button type="primary" bindtap="getData"> 获取云笔记数据列表</button>
-<scroll-view class="scolly" scroll-y>
-<view wx:for="{{dataObj}}" wx:key="{{index}}" data-index="{{index}}" bindtap="toDetail">
-  <view class="scrbox">
-    <text decode="emsp" user-select="true">标题{{index+1}}：{{item.title}}&emsp; </text>
-    <text user-select="true">摘要：{{item.content}}</text>
-  </view>
-</view>
-</scroll-view>
+<view>这是云笔记功能界面</view>
+<button type="primary" bindtap="getNoteData"> 云笔记列表</button>
 --------------
-<button type="primary" bindtap="getRecordData"> 获取云笔记历史录音文字数据</button>
-<scroll-view class="scolly" scroll-y>
-  <view wx:for="{{recordObj}}" wx:key="{{index}}" data-index="{{index}}"  bindtap="toRecordDetail">
-  <view class="scrbox">
-  <text decode="emsp" user-select="true">录音转文字内容：{{item.recordcontent}}&emsp;</text>
-  <text user-select="true">录音转文字时间：{{item.recordtime}}</text>
-</view>
-</view>
-</scroll-view>
+<button type="primary" bindtap="getRecordData"> 云笔记历史录音文字</button>
 --------------
-<button type="primary" bindtap="goEditor">添加和编辑云笔记</button>
+<button type="primary" bindtap="goEditor">新建云笔记</button>
 --------------
-<button type="primary" bindtap="goRichEditor">HTML解析界面</button>
---------------
-<button type="primary" bindtap="goRecorder">录音和识别</button>
+<button type="primary" bindtap="goRecorder">云录音识别</button>

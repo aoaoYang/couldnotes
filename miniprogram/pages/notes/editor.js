@@ -6,8 +6,9 @@ Page({
    * 页面的初始数据
    */
   data: {
-  title:'', //文章标题
-  content: '124', //文章摘要
+  title: '', //文章标题
+  content: '', //文章摘要
+  html: '',
   formats: {},
   bottom: 0,
   readOnly: false,
@@ -21,7 +22,12 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    // console.log(JSON.stringify(options.html))
+    this.setData({
+      title:options.title,
+      content:options.content,
+      html:options.html
+    })
   },
 
   /**
@@ -40,7 +46,7 @@ Page({
     wx.createSelectorQuery().select('#editor').context(function(res) {
       that.editorCtx=res.context;
       that.editorCtx.setContents({
-        html: that.data.content  //将数据写入编辑器内作为默认值
+        html: that.data.html  //将数据写入编辑器内作为默认值
        })
       //在这里用event.on注册onEditorReady方法
       //当event.emit执行时，就会调用onEditorReady方法，重新渲染富文本编辑器

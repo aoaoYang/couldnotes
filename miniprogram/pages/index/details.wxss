@@ -2,7 +2,7 @@
 .scolly{height: 600px; }
 .scrbox{width: 100%;height: 80px;background:gray;margin-bottom: 1px;}
 .scrboxcontent{width: 100%;height: 480px;background:gray;margin-bottom: 1px;}
-.editbtn{width: 20%;height: 35px;margin-right: 0px;background: grey;margin-top: 0%;margin-bottom: 1px;
-  position: relative; left: -225rpx; top: 0rpx}
+.editbtn{width: 20%;height: 35px;margin-right: 40px;background: grey;margin-top: 0%;margin-bottom: 1px;
+  position: relative; left: 80rpx; top: 0rpx}
 .savebtn{width: 20%;height: 35px;margin-right: 40px;background: grey;
   position: relative; left: 80rpx; top: -72rpx}

@@ -7,13 +7,14 @@
     "pages/notes/editor-details",
     "pages/notes/editor-resolver",
     "pages/editor/preview",
+    "pages/voice/recorder-preview",
     "pages/voice/recorder"
   ],
   "window": {
     "backgroundColor": "#F6F6F6",
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#F6F6F6",
-    "navigationBarTitleText": "云开发基础",
+    "navigationBarTitleText": "云笔记",
     "navigationBarTextStyle": "black"
   },
   "sitemapLocation": "sitemap.json"

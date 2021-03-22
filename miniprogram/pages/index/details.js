@@ -1,5 +1,6 @@
 // pages/index/details.js
 const db=wx.cloud.database()
+const app = getApp();
 Page({
 
   /**
@@ -8,6 +9,9 @@ Page({
   data: {
     dataObj:"",
     recordObj:"",
+    title:"",
+    content:"",
+    html:""
   },
 
   /**
@@ -19,15 +23,26 @@ Page({
     //查询操作
     db.collection("couldlist").doc(note_id).get().then(res=>{
       this.setData({
-        dataObj: res.data
+        dataObj: res.data,
+        title:res.data.title,
+        content:res.data.content,
+        html: res.data.details
       })
-      console.log(res.data)
+      console.log(res.data.title)
     }).catch(err=>{
       console.log(err)
     })
   },
   editnotes(){
     console.log('btn-edit')
+    let title=this.data.title
+    let content =this.data.content
+    let html=this.data.html.replace(/&/g,'and')
+
+    console.log(this.data.html)
+    wx.navigateTo({
+      url: '../notes/editor?title='+ title +'&content=' +content +'&html=' +html
+    })
   },
   savenotes(){
     console.log('btn-saved')

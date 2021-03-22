@@ -1,4 +1,4 @@
-/* pages/editor/preview.wxss */
+/* pages/voice/recorder-preview.wxss */
 input,textarea{border:1px solid #8888;}
 .scolly{height: 650px;}
 .scrbox{width: 100%;height: 80px;background:green;margin-bottom: 1px;}

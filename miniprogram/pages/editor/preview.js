@@ -1,20 +1,47 @@
 // pages/editor/preview.js
+const db=wx.cloud.database()
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    dataObj:""
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  this.setData({html:getApp().globalData.html})
+      //查询数据
+      // console.log(123)
+      // db.collection("couldlist").get({
+      //   success:res=>{
+      //     console.log(res.data)
+      //     this.setData({
+      //       dataObj: res.data
+      //     })
+      //   }
+      //   })
+      /** then链式调用，避免回调地狱*/
+      db.collection("couldlist").get().then(res=>{
+        this.setData({
+          dataObj: res.data
+        })
+      }).catch(err=>{
+        console.log(err)
+    })
   },
-
+  toDetail:function(event){
+    console.log('detail')
+    var id=parseInt(event.currentTarget.dataset.index);
+    var note_id=this.data.dataObj[id]._id;
+    console.log(id)
+    console.log(note_id)
+    wx.navigateTo({
+      url: '../index/details?id=' + note_id,
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
