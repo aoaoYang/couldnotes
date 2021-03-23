@@ -11,7 +11,8 @@ Page({
     recordObj:"",
     title:"",
     content:"",
-    html:""
+    html:"",
+    noteid:""
   },
 
   /**
@@ -26,9 +27,11 @@ Page({
         dataObj: res.data,
         title:res.data.title,
         content:res.data.content,
-        html: res.data.details
+        html: res.data.details,
+        noteid:note_id
       })
       console.log(res.data.title)
+      console.log(this.data.noteid)
     }).catch(err=>{
       console.log(err)
     })
@@ -38,10 +41,10 @@ Page({
     let title=this.data.title
     let content =this.data.content
     let html=this.data.html.replace(/&/g,'and')
-
-    console.log(this.data.html)
+    let noteid=this.data.noteid
+    console.log(noteid)
     wx.navigateTo({
-      url: '../notes/editor?title='+ title +'&content=' +content +'&html=' +html
+      url: '../notes/editor?noteid='+ noteid +'&title='+ title +'&content=' +content +'&html=' +html
     })
   },
   savenotes(){

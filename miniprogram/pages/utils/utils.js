@@ -13,23 +13,39 @@ function formatNumber (n) {
   return n[1] ? n : '0' + n
 }
 
-// function formatTime2 (number, format) {
-//   var formateArr = ['Y', 'M', 'D', 'h', 'm', 's']
-//   var returnArr = []
-//   var date = new Date(number * 1000)
-//   returnArr.push(date.getFullYear())
-//   returnArr.push(formatNumber(date.getMonth() + 1))
-//   returnArr.push(formatNumber(date.getDate()))
-//   returnArr.push(formatNumber(date.getHours()))
-//   returnArr.push(formatNumber(date.getMinutes()))
-//   returnArr.push(formatNumber(date.getSeconds()))
-//   for (var i in returnArr) {
-//     format = format.replace(formateArr[i], returnArr[i])
-//   }
-//   return format
-// }
+function isNull(str) {
+  if (Object.prototype.toString.call(str) === '[object Undefined]') { //空
+    return true
+  } else if (
+    Object.prototype.toString.call(str) === '[object String]' ||
+    Object.prototype.toString.call(str) === '[object Array]') { //字条串或数组
+    return str.length == 0 ? true : false
+  } else if (Object.prototype.toString.call(str) === '[object Object]') {
+    return JSON.stringify(str) == '{}' ? true : false
+  } else if (typeof(str) == 'number') { //Number 型
+    if (str) {
+      return false
+    } else { //数字0 不算空
+      if (str == 0) {
+        return false
+      }
+      return true
+    }
+  } else if (typeof(str) == 'boolean') {
+    if (!param) {
+      return true;
+    } else {
+      return false;
+    }
+  } else {
+    return true
+  }
+}
+
 
 module.exports = {
-  formatTime: formatTime
-  // formatTime2: formatTime2
+  formatTime: formatTime//时间格式化
+}
+module.exports = {
+  isNull: isNull//判断字段为空
 }

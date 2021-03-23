@@ -6,6 +6,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+  noteid:'',  
   title: '', //文章标题
   content: '', //文章摘要
   html: '',
@@ -24,6 +25,7 @@ Page({
   onLoad: function (options) {
     // console.log(JSON.stringify(options.html))
     this.setData({
+      noteid:options.noteid,
       title:options.title,
       content:options.content,
       html:options.html
@@ -145,8 +147,10 @@ Page({
       success: (res) => {
         console.log(this.data.title)
         console.log(this.data.content)
+        let noteid=this.data.noteid
         let title=this.data.title
         let content=this.data.content
+        app.globalData.noteid=noteid
         app.globalData.title=title
         app.globalData.content=content
         app.globalData.html = res.html

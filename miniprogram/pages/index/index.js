@@ -8,6 +8,10 @@ Page({
   data: {
     dataObj:"",
     recordObj:"",
+    noteid:"",
+    title:"",
+    content:"",
+    html:""
   },
   getNoteData(){
     wx.navigateTo({
@@ -22,8 +26,12 @@ Page({
     }).then(res=>{})
   },
   goEditor(){
+    let title=this.data.title
+    let content =this.data.content
+    let html=this.data.html.replace(/&/g,'and')
+    let noteid=this.data.noteid
     wx.navigateTo({
-      url: "../notes/editor"
+      url: '../notes/editor?noteid='+ noteid +'&title=' +title +'&content=' +content +'&html=' +html
     }).then(res=>{})
   },
   goRichEditor(){
